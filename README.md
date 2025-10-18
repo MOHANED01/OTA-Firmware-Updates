@@ -1,178 +1,150 @@
-<h1>📌 OTA Firmware Update System (STM32)</h1>
-<p> <strong>Over-The-Air (OTA)</strong> firmware update system designed for STM32 microcontrollers.
-This project enables one microcontroller (Transmitter) to send and flash a new firmware (HEX file) onto another microcontroller (Receiver) via the <strong>USART communication protocol</strong> — eliminating the need for a physical programmer.</p>
+<h1>🔄 OTA Firmware Update System (STM32)</h1>
+<p>
+  A reliable <strong>Over-The-Air (OTA)</strong> firmware update system for STM32 microcontrollers. 
+  This project allows one MCU (Transmitter) to send and flash a new firmware (HEX file) 
+  onto another MCU (Receiver) via the <strong>USART protocol</strong>, removing the need for a hardware programmer.
+</p>
 
 <hr />
 
-<h2>📌 Project Overview</h2>
-<p>This system demonstrates <strong> firmware updating</strong> for embedded devices, using a bootloader implemented on the receiver MCU.
+<h2>🚀 Project Overview</h2>
+<p>
+  This system demonstrates <strong>remote firmware updating</strong> for embedded devices through a custom bootloader 
+  on the receiver MCU. It is ideal for automotive ECUs, IoT, and industrial controllers where field updates are essential.
+</p>
 
-
-<h3>📌 Key Objectives</h3>
+<h3>🎯 Key Objectives</h3>
 <ul>
-  <li>Enable <strong>firmware update via serial communication (USART)</strong></li>
-  <li>Implement <strong>custom bootloader</strong> on the receiver MCU</li>
-  <li>Parse and flash <strong>HEX</strong> files safely to Flash memory</li>
-  <li>Follow <strong>layered architecture</strong> for code organization (MCAL, HAL, APP)</li>
+  <li>Enable <strong>firmware updates via USART</strong></li>
+  <li>Implement a <strong>custom bootloader</strong> on the receiver MCU</li>
+  <li>Parse and flash <strong>Intel HEX</strong> files safely into Flash memory</li>
+  <li>Ensure reliable communication between Transmitter and Receiver</li>
+  <li>Follow a <strong>layered architecture</strong> (MCAL, HAL, APP)</li>
 </ul>
 
 <hr />
 
-<h2>📌 System Descriprion</h2>
-<pre><code> ┌─────────────────────┐        USART       ┌───────────────────────┐
- │   Transmitter MCU   │  &lt;----------------&gt;│    Receiver MCU       │
- │ (Application board) │                    │ (Bootloader system)   │
+<h2>⚙️ System Architecture</h2>
+<pre><code> ┌─────────────────────┐        USART        ┌───────────────────────┐
+ │   Transmitter MCU   │  <----------------> │    Receiver MCU       │
+ │ (Application Board) │                    │ (Bootloader System)   │
  └─────────────────────┘                    └───────────────────────┘
-                                                      │
-                                                      │
-                                                      ▼
-                                           [Flash Memory Writer]
+          │                                            │
+          ▼                                            ▼
+     [HEX Parser]                             [Flash Memory Writer]
+</code></pre>
 
+<hr />
 
-<h2>📌 Features</h2>
-  Bootloader on receiver MCU handles:
-  - Erasing old firmware
-  - Writing new firmware line-by-line to Flash memory
-
-<p> 📌Transmitter MCU handles:</p>
+<h2>🧩 Features</h2>
 <ul>
-  <li>Reading and parsing the HEX file</li>
-  <li>Sending structured data frames through USART</li>
-</ul>
-
-<p> Drivers Implemented:</p>
-<ul>
-  <li><strong>RCC</strong> (Clock Control)</li>
-  <li><strong>GPIO</strong></li>
-  <li><strong>NVIC</strong></li>
-  <li><strong>SysTick</strong></li>
-  <li><strong>USART</strong></li>
-
-</ul>
-
-<p>✅ Designed with <strong>layered architecture</strong>:</p>
-<ul>
-  <li><strong>MCAL</strong> (Microcontroller Abstraction Layer)</li>
-  <li><strong>HAL</strong> (Hardware Abstraction Layer)</li>
-  <li><strong>APP</strong> (Application Layer)</li>
+  <li><strong>Receiver (Bootloader)</strong>:
+    <ul>
+      <li>Erases previous firmware</li>
+      <li>Writes new firmware to Flash line-by-line</li>
+      <li>Validates data integrity via checksum</li>
+    </ul>
+  </li>
+  <li><strong>Transmitter</strong>:
+    <ul>
+      <li>Reads and parses the HEX file</li>
+      <li>Sends structured data packets over USART</li>
+    </ul>
+  </li>
+  <li><strong>Drivers Implemented:</strong> RCC, GPIO, NVIC, SysTick, USART, FMI</li>
+  <li><strong>Architecture:</strong> MCAL → HAL → APP</li>
 </ul>
 
 <hr />
 
-
+<h2>🧱 Project Structure</h2>
+<pre><code>OTA-Firmware-Update/
+├── inc/          # Header files
+├── src/          # Source files
+├── bootloader/   # Bootloader logic
+├── parser/       # HEX file parser
+├── drivers/      # Peripheral drivers
+├── configs/      # MCU and system configuration
+├── README.md
+└── .gitignore
+</code></pre>
 
 <hr />
 
 <h2>🔧 Technical Specifications</h2>
 <table>
   <thead>
-    <tr>
-      <th>Component</th>
-      <th>Details</th>
-    </tr>
+    <tr><th>Component</th><th>Details</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Microcontroller</strong></td>
-      <td>STM32F401CC</td>
-    </tr>
-    <tr>
-      <td><strong>Communication Protocol</strong></td>
-      <td>USART</td>
-    </tr>
-    <tr>
-      <td><strong>Programming Language</strong></td>
-      <td>Embedded C</td>
-    </tr>
-    <tr>
-      <td><strong>IDE / Toolchain</strong></td>
-      <td>STM32CubeIDE / IAR Embedded Workbench</td>
-    </tr>
-    <tr>
-      <td><strong>Bootloader Memory Start</strong></td>
-      <td>Configurable (e.g., 0x08000000 → 0x08004000 for app)</td>
-    </tr>
-    <tr>
-      <td><strong>Firmware Format</strong></td>
-      <td>Intel HEX (.hex)</td>
-    </tr>
-    <tr>
-      <td><strong>Architecture</strong></td>
-      <td>Layered (MCAL → HAL → APP)</td>
-    </tr>
+    <tr><td>Microcontroller</td><td>STM32F401CC</td></tr>
+    <tr><td>Protocol</td><td>USART</td></tr>
+    <tr><td>Language</td><td>Embedded C</td></tr>
+    <tr><td>IDE / Toolchain</td><td>STM32CubeIDE / IAR</td></tr>
+    <tr><td>Bootloader Start</td><td>0x08000000 → 0x08004000 (App)</td></tr>
+    <tr><td>Firmware Format</td><td>Intel HEX (.hex)</td></tr>
+    <tr><td>Architecture</td><td>Layered (MCAL → HAL → APP)</td></tr>
   </tbody>
 </table>
 
 <hr />
 
-<h2>📌 How It Works</h2>
+<h2>🧠 How It Works</h2>
 <ol>
-  <li><strong>Transmitter MCU:</strong>
+  <li><strong>Transmitter MCU</strong>
     <ul>
-      <li>Reads the HEX file line by line.</li>
-      <li>Parses records and converts ASCII HEX data into binary.</li>
-      <li>Sends data packets over USART to the receiver.</li>
+      <li>Reads HEX records line-by-line</li>
+      <li>Parses and converts ASCII HEX to binary</li>
+      <li>Sends frames to Receiver via USART</li>
     </ul>
   </li>
-  <li><strong>Receiver MCU:</strong>
+  <li><strong>Receiver MCU</strong>
     <ul>
-      <li>Receives packets, validates checksum.</li>
-      <li>Writes data to Flash memory via FMI driver.</li>
-      <li>After completion, jumps to the new application address.</li>
+      <li>Receives and validates packets</li>
+      <li>Programs Flash using FMI driver</li>
+      <li>Jumps to new application after success</li>
     </ul>
   </li>
-  <li><strong>Verification:</strong>
-    <ul>
-      <li>The system ensures data integrity through simple checksum validation.</li>
-      <li>Optional CRC checks can be added for production-grade reliability.</li>
-    </ul>
-  </li>
+  <li><strong>Verification:</strong> checksum validation (CRC optional)</li>
 </ol>
 
 <hr />
 
 <h2>🧪 Testing &amp; Validation</h2>
 <ul>
-  <li>Tested on <strong>STM32F401CC</strong> and <strong>STM32F401CC</strong> boards.</li>
-  <li>Verified through <strong>serial monitoring</strong> and <strong>in-memory comparison</strong> post-update.</li>
-  <li>Flash write and erase operations confirmed using STM32 ST-Link Utility.</li>
+  <li>Verified on NUCLEO-F401CC and STM32F103C8 (“Blue Pill”)</li>
+  <li>Serial output monitored for transfer integrity</li>
+  <li>Flash operations confirmed via ST-Link Utility</li>
 </ul>
 
 <hr />
 
 <h2>🧰 Build &amp; Flash Instructions</h2>
-
-<h3>🧩 Requirements</h3>
+<h3>Requirements</h3>
 <ul>
-  <li>STM32CubeIDE </li>
-  <li>ST-Link programmer (for initial bootloader flashing)</li>
-  <li>Serial terminal (for monitoring USART)</li>
-  <li>Two STM32 boards (Tx and Rx)</li>
+  <li>STM32CubeIDE / IAR Embedded Workbench</li>
+  <li>ST-Link programmer (for bootloader flashing)</li>
+  <li>Serial terminal (USART monitor)</li>
+  <li>Two STM32 boards (Transmitter &amp; Receiver)</li>
 </ul>
 
-<h3>⚙️ Steps</h3>
+<h3>Steps</h3>
 <ol>
-  <li>Build and flash the <strong>bootloader project</strong> onto the receiver MCU.</li>
-  <li>Build and flash the <strong>transmitter project</strong> onto the sender MCU.</li>
-  <li>Connect Tx/Rx lines between both MCUs:
-    <ul>
-      <li>TX → RX</li>
-      <li>RX → TX</li>
-      <li>GND → GND</li>
-    </ul>
-  </li>
-  <li>Power both boards and start transmission.</li>
-  <li>Observe flashing progress via terminal.</li>
+  <li>Flash <strong>bootloader</strong> onto Receiver MCU</li>
+  <li>Flash <strong>application/transmitter</strong> onto Sender MCU</li>
+  <li>Connect UART lines: TX→RX, RX→TX, GND→GND</li>
+  <li>Power both boards and start transmission</li>
+  <li>Observe update progress through terminal logs</li>
 </ol>
 
 <hr />
 
-<h2>📁 Example Workflow</h2>
+<h2>📁 Example Output</h2>
 <pre><code># Transmitter sends HEX records
 :10000000020000200D0000004D00000021000000C1
 :1000100000000000000000000000000000000000E0
 ...
-# Receiver writes each line to Flash
+# Receiver output
 [Bootloader] Erasing old firmware...
 [Bootloader] Writing new firmware...
 [Bootloader] Done. Jumping to Application.
@@ -180,13 +152,34 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 
 <hr />
 
-<h2>🧠 Future Enhancements</h2>
+<h2>🚀 Future Enhancements</h2>
 <ul>
-  <li>Add <strong>CRC validation</strong> before executing new firmware</li>
-  <li>Implement <strong>wireless OTA (ESP8266 / BLE)</strong></li>
-  <li>Support <strong>multiple MCU families </strong></li>
-  <li>Add <strong>progress tracking</strong> and error recovery</li>
+  <li>CRC validation before jump</li>
+  <li>Wireless OTA (ESP8266 / BLE)</li>
+  <li>Multi-MCU family support (F4, F7, L4)</li>
+  <li>Progress tracking &amp; error recovery</li>
 </ul>
 
+<hr />
 
+<h2>📚 References</h2>
+<ul>
+  <li>STM32 Reference Manual RM0368 (Flash programming)</li>
+  <li>ARM Cortex-M4 Architecture Docs</li>
+  <li>Intel HEX File Format Specification</li>
+</ul>
 
+<hr />
+
+<h2>👨‍💻 Author</h2>
+<p>
+  <strong>Mohaned Hossam</strong><br />
+  Embedded Software Engineer<br />
+  📧 <a href="mailto:mohanedtohamy444@gmail.com">mohanedtohamy444@gmail.com</a><br />
+  🔗 <a href="https://www.linkedin.com/in/mohaned-hossam-8593041b3">LinkedIn</a><br />
+  💻 <a href="https://github.com/MOHANED01">GitHub</a>
+</p>
+
+<hr />
+
+<p><strong>⭐ “Empowering embedded systems with intelligent, updatable firmware.”</strong></p>
