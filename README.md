@@ -110,7 +110,7 @@
 <ul>
   <li>STM32CubeIDE</li>
   <li>ST-Link programmer (for bootloader flashing)</li>
-  <li>Serial terminal (USART monitor)</li>
+
   <li>Two STM32 boards (Transmitter &amp; Receiver)</li>
 </ul>
 
