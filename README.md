@@ -50,7 +50,7 @@
       <li>Sends structured data packets over USART</li>
     </ul>
   </li>
-  <li><strong>Drivers Implemented:</strong> RCC, GPIO, NVIC, SysTick, USART</li>
+  <li><strong>Drivers Implemented:</strong> RCC, GPIO, NVIC, SysTick, USART, HEXPARSER, FMI</li>
   <li><strong>Architecture:</strong> MCAL → HAL → APP</li>
 </ul>
 
