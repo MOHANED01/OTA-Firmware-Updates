@@ -120,7 +120,7 @@
   <li>Flash <strong>application/transmitter</strong> onto Sender MCU</li>
   <li>Connect UART lines: TX→RX, RX→TX, GND→GND</li>
   <li>Power both boards and start transmission</li>
-  <li>Observe update progress through terminal logs</li>
+  <li>Observe update progress in memory via ST-link Utility</li>
 </ol>
 
 <hr />
