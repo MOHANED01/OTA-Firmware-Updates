@@ -25,14 +25,14 @@
 <hr />
 
 <h2>📌 System Architecture</h2>
-<pre><code> ┌─────────────────────┐        USART        ┌───────────────────────┐
+<pre><code> ┌─────────────────────┐        USART       ┌───────────────────────┐
  │   Transmitter MCU   │  <----------------> │    Receiver MCU       │
  │ (Application Board) │                    │ (Bootloader System)   │
  └─────────────────────┘                    └───────────────────────┘
                                                       │
                                                       ▼
                                             [Flash Memory Writer]
-
+<code></pre>
 
 <hr />
 
