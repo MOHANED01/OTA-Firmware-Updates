@@ -19,7 +19,7 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 <hr />
 
 <h2>⚙️ System Architecture</h2>
-<pre><code> ┌─────────────────────┐        USART      ┌───────────────────────┐
+<pre><code> ┌─────────────────────┐        USART       ┌───────────────────────┐
  │   Transmitter MCU   │  &lt;----------------&gt;│    Receiver MCU       │
  │ (Application board) │                    │ (Bootloader system)   │
  └─────────────────────┘                    └───────────────────────┘
