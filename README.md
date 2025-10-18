@@ -28,8 +28,7 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
                                                       ▼
                                            [Flash Memory Writer]
 
-</ul>
-<hr />
+
 
 <h2>📌 Features</h2>
 <p> Bootloader on receiver MCU handles:</p>
