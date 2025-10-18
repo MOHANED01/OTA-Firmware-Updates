@@ -5,7 +5,7 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 <hr />
 
 <h2>📌 Project Overview</h2>
-<p>This system demonstrates <strong>remote firmware updating</strong> for embedded devices, using a bootloader implemented on the receiver MCU.
+<p>This system demonstrates <strong> firmware updating</strong> for embedded devices, using a bootloader implemented on the receiver MCU.
 
 
 <h3>📌 Key Objectives</h3>
@@ -19,8 +19,8 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 <hr />
 
 <h2>⚙️ System Architecture</h2>
-<pre><code> ┌─────────────────────┐        USART        ┌───────────────────────┐
- │   Transmitter MCU   │  &lt;----------------&gt; │    Receiver MCU       │
+<pre><code> ┌─────────────────────┐        USART     ┌───────────────────────┐
+ │   Transmitter MCU   │  &lt;----------------&gt;│    Receiver MCU       │
  │ (Application board) │                    │ (Bootloader system)   │
  └─────────────────────┘                    └───────────────────────┘
                                                       │
