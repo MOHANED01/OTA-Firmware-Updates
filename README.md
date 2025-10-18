@@ -32,7 +32,7 @@
                                                       │
                                                       ▼
                                             [Flash Memory Writer]
-<code></pre>
+</code></pre>
 
 <hr />
 
