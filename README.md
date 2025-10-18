@@ -30,10 +30,10 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 
 
 <h2>📌 Features</h2>
- . Bootloader on receiver MCU handles:
+  Bootloader on receiver MCU handles:
   - Erasing old firmware
   - Writing new firmware line-by-line to Flash memory
-
+<hr />
 <p> 📌Transmitter MCU handles:</p>
 <ul>
   <li>Reading and parsing the HEX file</li>
