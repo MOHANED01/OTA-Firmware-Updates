@@ -66,7 +66,7 @@
     <tr><td>Microcontroller</td><td>STM32F401CC</td></tr>
     <tr><td>Protocol</td><td>USART</td></tr>
     <tr><td>Language</td><td>Embedded C</td></tr>
-    <tr><td>IDE / Toolchain</td><td>STM32CubeIDE / IAR</td></tr>
+    <tr><td>IDE / Toolchain</td><td>STM32CubeIDE / ST-LINK Utility </td></tr>
     <tr><td>Bootloader Start</td><td>0x08000000 → 0x08004000 (App)</td></tr>
     <tr><td>Firmware Format</td><td>Intel HEX (.hex)</td></tr>
     <tr><td>Architecture</td><td>Layered (MCAL → HAL → APP)</td></tr>
