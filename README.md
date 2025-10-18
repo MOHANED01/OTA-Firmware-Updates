@@ -145,5 +145,9 @@
   <li>Multi-MCU family support (F4, F7, L4)</li>
   <li>Progress tracking &amp; error recovery</li>
 </ul>
-
+<h2>📌 References</h2>
+<ul>
+  <li>ITI Advanced Embedded Systems - Final Project</li>
+ 
+</ul>
 
