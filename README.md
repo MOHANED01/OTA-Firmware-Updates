@@ -1,19 +1,18 @@
-<h1>🔄 OTA Firmware Update System (STM32)</h1>
-<p>A reliable <strong>Over-The-Air (OTA)</strong> firmware update system designed for STM32 microcontrollers.
+<h1>📌 OTA Firmware Update System (STM32)</h1>
+<p> <strong>Over-The-Air (OTA)</strong> firmware update system designed for STM32 microcontrollers.
 This project enables one microcontroller (Transmitter) to send and flash a new firmware (HEX file) onto another microcontroller (Receiver) via the <strong>USART communication protocol</strong> — eliminating the need for a physical programmer.</p>
 
 <hr />
 
-<h2>🚀 Project Overview</h2>
+<h2>📌 Project Overview</h2>
 <p>This system demonstrates <strong>remote firmware updating</strong> for embedded devices, using a bootloader implemented on the receiver MCU.
-It’s an essential feature for modern embedded systems where field updates are required (e.g., automotive ECUs, IoT devices, industrial controllers).</p>
 
-<h3>🎯 Key Objectives</h3>
+
+<h3>📌 Key Objectives</h3>
 <ul>
   <li>Enable <strong>firmware update via serial communication (USART)</strong></li>
   <li>Implement <strong>custom bootloader</strong> on the receiver MCU</li>
-  <li>Parse and flash <strong>Intel HEX</strong> files safely to Flash memory</li>
-  <li>Provide robust communication between transmitter and receiver</li>
+  <li>Parse and flash <strong>HEX</strong> files safely to Flash memory</li>
   <li>Follow <strong>layered architecture</strong> for code organization (MCAL, HAL, APP)</li>
 </ul>
 
@@ -24,36 +23,35 @@ It’s an essential feature for modern embedded systems where field updates are 
  │   Transmitter MCU   │  &lt;----------------&gt; │    Receiver MCU       │
  │ (Application board) │                    │ (Bootloader system)   │
  └─────────────────────┘                    └───────────────────────┘
-          │                                            │
-          │                                            │
-          ▼                                            ▼
-     [HEX Parser]                             [Flash Memory Writer]
-</code></pre>
+                                                      │
+                                                      │
+                                                      ▼
+                                           [Flash Memory Writer]
+
 
 <hr />
 
-<h2>🧩 Features</h2>
-<p>✅ Bootloader on receiver MCU handles:</p>
+<h2>📌 Features</h2>
+<p> Bootloader on receiver MCU handles:</p>
 <ul>
   <li>Erasing old firmware</li>
   <li>Writing new firmware line-by-line to Flash memory</li>
-  <li>Verifying data integrity</li>
 </ul>
 
-<p>✅ Transmitter MCU handles:</p>
+<p> 📌Transmitter MCU handles:</p>
 <ul>
   <li>Reading and parsing the HEX file</li>
   <li>Sending structured data frames through USART</li>
 </ul>
 
-<p>✅ Drivers Implemented:</p>
+<p> Drivers Implemented:</p>
 <ul>
   <li><strong>RCC</strong> (Clock Control)</li>
   <li><strong>GPIO</strong></li>
   <li><strong>NVIC</strong></li>
   <li><strong>SysTick</strong></li>
   <li><strong>USART</strong></li>
-  <li><strong>FMI</strong> (Flash Memory Interface)</li>
+
 </ul>
 
 <p>✅ Designed with <strong>layered architecture</strong>:</p>
@@ -65,17 +63,7 @@ It’s an essential feature for modern embedded systems where field updates are 
 
 <hr />
 
-<h2>🧱 Project Structure</h2>
-<pre><code>OTA-Firmware-Update/
-├── inc/                     # Header files
-├── src/                     # Source files
-├── bootloader/              # Bootloader logic for receiver MCU
-├── parser/                  # HEX file parser
-├── drivers/                 # Peripheral drivers (GPIO, RCC, NVIC, USART, etc.)
-├── configs/                 # System and MCU configuration files
-├── README.md
-└── .gitignore
-</code></pre>
+
 
 <hr />
 
@@ -121,7 +109,7 @@ It’s an essential feature for modern embedded systems where field updates are 
 
 <hr />
 
-<h2>🧠 How It Works</h2>
+<h2>📌 How It Works</h2>
 <ol>
   <li><strong>Transmitter MCU:</strong>
     <ul>
@@ -149,7 +137,7 @@ It’s an essential feature for modern embedded systems where field updates are 
 
 <h2>🧪 Testing &amp; Validation</h2>
 <ul>
-  <li>Tested on <strong>NUCLEO-F401CC</strong> and <strong>Blue Pill (STM32F103C8)</strong> boards.</li>
+  <li>Tested on <strong>STM32F401CC</strong> and <strong>STM32F401CC</strong> boards.</li>
   <li>Verified through <strong>serial monitoring</strong> and <strong>in-memory comparison</strong> post-update.</li>
   <li>Flash write and erase operations confirmed using STM32 ST-Link Utility.</li>
 </ul>
@@ -160,7 +148,7 @@ It’s an essential feature for modern embedded systems where field updates are 
 
 <h3>🧩 Requirements</h3>
 <ul>
-  <li>STM32CubeIDE or IAR</li>
+  <li>STM32CubeIDE </li>
   <li>ST-Link programmer (for initial bootloader flashing)</li>
   <li>Serial terminal (for monitoring USART)</li>
   <li>Two STM32 boards (Tx and Rx)</li>
@@ -200,29 +188,9 @@ It’s an essential feature for modern embedded systems where field updates are 
 <ul>
   <li>Add <strong>CRC validation</strong> before executing new firmware</li>
   <li>Implement <strong>wireless OTA (ESP8266 / BLE)</strong></li>
-  <li>Support <strong>multiple MCU families (F4, F7)</strong></li>
+  <li>Support <strong>multiple MCU families </strong></li>
   <li>Add <strong>progress tracking</strong> and error recovery</li>
 </ul>
 
-<hr />
 
-<h2>📚 References</h2>
-<ul>
-  <li>STM32 Reference Manual RM0368 (Flash programming section)</li>
-  <li>ARM Cortex-M4 Architecture Documentation</li>
-  <li>Intel HEX File Format Specification</li>
-</ul>
-
-<hr />
-
-<h2>👨‍💻 Author</h2>
-<p><strong>Mohaned Hossam</strong><br />
-Embedded Software Engineer<br />
-📧 <a href="mailto:mohanedtohamy444@gmail.com">mohanedtohamy444@gmail.com</a><br />
-🔗 <a href="https://www.linkedin.com/in/mohaned-hossam-8593041b3">LinkedIn</a><br />
-💻 <a href="https://github.com/MOHANED01">GitHub</a></p>
-
-<hr />
-
-<p><strong>⭐ “Empowering embedded systems with intelligent, updatable firmware.”</strong></p>
 
