@@ -1,4 +1,4 @@
-<h1>🔄 OTA Firmware Update System (STM32)</h1>
+<h1> OTA Firmware Update System (STM32)</h1>
 <p>
    <strong>Over-The-Air (OTA)</strong> firmware update system for STM32 microcontrollers. 
   This project allows one MCU (Transmitter) to send and flash a new firmware (HEX file) 
@@ -26,7 +26,7 @@
 
 <h2>📌 System Architecture</h2>
 <pre><code> ┌─────────────────────┐        USART       ┌───────────────────────┐
- │   Transmitter MCU   │  <----------------> │    Receiver MCU       │
+ │   Transmitter MCU   │  <---------------->│    Receiver MCU       │
  │ (Application Board) │                    │ (Bootloader System)   │
  └─────────────────────┘                    └───────────────────────┘
                                                       │
