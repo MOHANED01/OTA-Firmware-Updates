@@ -68,7 +68,7 @@
     <tr><td>Language</td><td>Embedded C</td></tr>
     <tr><td>IDE / Toolchain</td><td>STM32CubeIDE / ST-LINK Utility </td></tr>
     <tr><td>Bootloader Start</td><td>0x08000000 → 0x08004000 (App)</td></tr>
-    <tr><td>Firmware Format</td><td>Intel HEX (.hex)</td></tr>
+    <tr><td>Firmware Format</td><td>HEX (.hex)</td></tr>
     <tr><td>Architecture</td><td>Layered (MCAL → HAL → APP)</td></tr>
   </tbody>
 </table>
@@ -80,25 +80,25 @@
   <li><strong>Transmitter MCU</strong>
     <ul>
       <li>Reads HEX records line-by-line</li>
-      <li>Parses and converts ASCII HEX to binary</li>
       <li>Sends frames to Receiver via USART</li>
     </ul>
   </li>
   <li><strong>Receiver MCU</strong>
     <ul>
-      <li>Receives and validates packets</li>
+      <li>Receives packets</li>
+      <li>Parses and converts ASCII HEX to binary</li>
       <li>Programs Flash using FMI driver</li>
       <li>Jumps to new application after success</li>
     </ul>
   </li>
-  <li><strong>Verification:</strong> checksum validation (CRC optional)</li>
+
 </ol>
 
 <hr />
 
 <h2>📌 Testing &amp; Validation</h2>
 <ul>
-  <li>Verified on NUCLEO-F401CC and STM32F103C8 (“Blue Pill”)</li>
+  <li>Verified on STM32F401CC and STM32F401CC</li>
   <li>Serial output monitored for transfer integrity</li>
   <li>Flash operations confirmed via ST-Link Utility</li>
 </ul>
@@ -108,7 +108,7 @@
 <h2>📌 Build &amp; Flash Instructions</h2>
 <h3>Requirements</h3>
 <ul>
-  <li>STM32CubeIDE / IAR Embedded Workbench</li>
+  <li>STM32CubeIDE</li>
   <li>ST-Link programmer (for bootloader flashing)</li>
   <li>Serial terminal (USART monitor)</li>
   <li>Two STM32 boards (Transmitter &amp; Receiver)</li>
