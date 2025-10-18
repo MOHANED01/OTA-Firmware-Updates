@@ -18,7 +18,7 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 
 <hr />
 
-<h2>⚙️ System Architecture</h2>
+<h2>📌 System Descriprion</h2>
 <pre><code> ┌─────────────────────┐        USART       ┌───────────────────────┐
  │   Transmitter MCU   │  &lt;----------------&gt;│    Receiver MCU       │
  │ (Application board) │                    │ (Bootloader system)   │
@@ -30,11 +30,11 @@ This project enables one microcontroller (Transmitter) to send and flash a new f
 
 
 
-<h4>📌 Features</h4>
+<h2>📌 Features</h2>
 <p> Bootloader on receiver MCU handles:</p>
 <ul>
-  <li>Erasing old firmware</li>
-  <li>Writing new firmware line-by-line to Flash memory</li>
+  - Erasing old firmware
+  - Writing new firmware line-by-line to Flash memory
 </ul>
 
 <p> 📌Transmitter MCU handles:</p>
